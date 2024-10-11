@@ -56,3 +56,13 @@ let ages = [17, 13, 23, 54, 67, 32];
 let maxValue3 = Math.max(...ages);
 console.log(maxValue3);
 
+// The Reduce Method
+// Leveraging the array’s reduce() function, this method goes through the elements, comparing each to an accumulated value, resulting in the highest value by the end of the operation.
+
+let numbers2 = [3, 7, 2, 8, 5];
+let max2 = numbers.reduce((accumulator, currentValue) => {
+    return Math.max(accumulator, currentValue);
+}, numbers[0]);
+
+console.log(max2); // Outputs: 8
+
