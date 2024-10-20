@@ -1,24 +1,28 @@
 // brick calculator with function
+// here (1 - 10 = 15 feet), (11 - 20 = 12 feet), upper 20 = 10 feet
+// per feet = 1000 bricks
+
 function brickCalculator(n){
-    const bricksForPerFeet = 1000;
-    // here (1 - 10 = 15 feet), (11 - 20 = 12 feet), upper 20 = 10 feet
-    if(n <= 10){ 
-        return 15 * bricksForPerFeet;        
+    const bricksPerFeet = 1000;
+    let bricks = 0;
+    if(n <= 10){
+        bricks = n * 15 * bricksPerFeet;
     }
     else if(n <= 20){
-        return 12 * bricksForPerFeet;
+        let firstPart = 10 * 15;
+        let remaining = n - 10;
+        let secondPart = remaining * 12;
+        bricks = (firstPart + secondPart) * bricksPerFeet;
     }
-    else {
-        return 10 * bricksForPerFeet;
+    else{
+        let firstPart = 10 * 15;
+        let secondPart = 10 * 12;
+        let remaining = n - 20;
+        let thirdPart = remaining * 10;
+        bricks = (firstPart + secondPart + thirdPart) * bricksPerFeet;
     }
+    return bricks;
 }
 
-let result = brickCalculator(8);
-console.log(result);
-
-let result2 = brickCalculator(17);
-console.log(result2);
-
-let result3 = brickCalculator(30);
-console.log(result3);
- 
+const count = brickCalculator(20);
+console.log(count);
